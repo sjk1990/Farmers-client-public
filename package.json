@@ -5,12 +5,13 @@
   "dependencies": {
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "cross-env NODE_PATH=src react-scripts start",
+    "build": "cross-env NODE_PATH=src react-scripts build",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -29,6 +30,7 @@
     ]
   },
   "devDependencies": {
+    "cross-env": "^6.0.3",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-prettier": "^3.1.1",
