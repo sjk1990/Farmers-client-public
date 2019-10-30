@@ -1,0 +1,38 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react"
+  ],
+  "plugins": ["prettier", "react"],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true, // 싱글, 벡틱 사용 가능
+        "printWidth": 80
+      },
+      {
+        "usePrettierrc": false
+        // 프리티어 구성 파일을 로드, Eslint와 prettier구성을 혼합하지 않는 경우 유용
+      }
+    ],
+    "no-console": "warn",
+    "semi": 0,
+    "no-undef": "warn"
+  }
+}
