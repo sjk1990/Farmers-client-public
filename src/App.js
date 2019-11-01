@@ -4,7 +4,7 @@ import {Layout} from 'antd';
 import Topper from './mainPage/component/header';
 import Body from './mainPage/component/body';
 import Bottom from './mainPage/component/footer';
-import WrappedSignIn from './SignPage/SignIn';
+import WrappedSignIn from './signPage/signIn';
 
 
 // const { Header, Content, Footer } = Layout;
