@@ -1,16 +1,23 @@
-import React, { Component } from 'react';
-import WrappedSignIn from './SignPage/SignIn';
-// import WrappedSignUp from './SignPage/SignUp';
-// import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <WrappedSignIn></WrappedSignIn>
-      </div>
-    );
-  }
+import React, { Component } from 'react';
+import {Layout} from 'antd';
+import Topper from './mainPage/component/header';
+import Body from './mainPage/component/body';
+import Bottom from './mainPage/component/footer';
+import WrappedSignIn from './SignPage/SignIn';
+
+
+// const { Header, Content, Footer } = Layout;
+// 특정 컴포넌트 내에 span은 24로 나눠짐
+
+function App() {
+  return (
+    <Layout className="layout">
+      <Topper />
+      <Body />
+      <Bottom />
+    </Layout>
+  );
 }
 
 export default App;

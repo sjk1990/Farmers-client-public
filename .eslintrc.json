@@ -32,7 +32,7 @@
       }
     ],
     "no-console": "warn",
-    "semi": 0,
-    "no-undef": "warn"
+    "semi": 0
+    //"no-undef": "warn"
   }
 }
