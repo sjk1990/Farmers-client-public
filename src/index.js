@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './App'
 // env에 관해서 다음 주소를 참조 https://velopert.com/3417
 
 ReactDOM.render(<App />, document.getElementById('root'));

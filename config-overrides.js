@@ -11,3 +11,7 @@ module.exports = override(
     modifyVars: { '@primary-color': '#1DA57A' }
   })
 );
+
+
+//react-app-rewired
+// 이곳에서 웹팩의 config를 확장시킬 수 있다.
