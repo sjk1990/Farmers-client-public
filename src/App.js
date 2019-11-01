@@ -1,8 +1,11 @@
-import React from 'react';
+
+import React, { Component } from 'react';
 import {Layout} from 'antd';
 import Topper from './mainPage/component/header';
 import Body from './mainPage/component/body';
 import Bottom from './mainPage/component/footer';
+import WrappedSignIn from './SignPage/SignIn';
+
 
 // const { Header, Content, Footer } = Layout;
 // 특정 컴포넌트 내에 span은 24로 나눠짐
