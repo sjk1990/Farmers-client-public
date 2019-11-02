@@ -3,19 +3,32 @@ import { Typography, Divider } from 'antd';
 
 const { Title, Paragraph } = Typography;
 
-let imgStyle = { height : "20vh", marginTop : "1vh", marginRight : "2vw", float : "left"}
+/***********************************************CSS******************************************************/
+let imgStyle = {
+  borderRadius: '1vw',
+  height: '20vh',
+  marginTop: '1vh',
+  marginRight: '2vw',
+  float: 'left'
+};
+/********************************************************************************************************/
 
-function Recommend(){
-    return (
-        // 로그인 후
-        <div style ={{textAlign : "left"}}>
-            <img src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png'
-            style ={imgStyle}></img>
-            <div className = "wrap-description">
-                <strong>고구마</strong>
-                <p>대충 고구마에 대한 자세하고 친절한 설명</p>
-            </div>
-        </div>
+function Recommend() {
+  return (
+    // 로그인 후
+    <div className="content-wrapper" style={{ textAlign: 'left' }}>
+      <img
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        className="content-image"
+        style={imgStyle}
+      ></img>
+      <div className="wrap-crop-content">
+        <strong className="crop-name">고구마</strong>
+        <p className="crop-description">
+          대충 고구마에 대한 자세하고 친절한 설명
+        </p>
+      </div>
+    </div>
     // 로그인 전
     // <Typography>
     //     <Title level={2}>추천작물</Title>
