@@ -7,28 +7,31 @@ const { Header } = Layout;
 const { Title } = Typography;
 const colStyle = { textAlign: 'center' };
 
+/***********************************************CSS*************************************************************/
+
+const PageHeaderStyle = { width: '70vw', margin: 'auto', marginTop: '1vh', borderRadius: '1.5vh'}
+
+/***************************************************************************************************************/
+
 function Topper() {
-    return (
-      <div
-    style={{
-      backgroundColor: '#F5F5F5',
-      padding: 24,
-    }}
-  >
-    <PageHeader style ={{width: "70vw", margin : "auto"}}
-      ghost={false}
-      // onBack={() => window.history.back()}
-      title="생활농사"
-      // subTitle="This is a subtitle"
-      extra={[
-        <Button key="3">HOME</Button>,
-        <Button key="2">회원가입</Button>,
-        <Button key="1" type="primary">로그인</Button>,
-      ]}
-    >
-    </PageHeader>
-  </div>
-        // <Header style={{ background: '#E0F8E0', height: "10vh"}}>
+  return (
+    <div className="header-wrap">
+      <PageHeader
+        style={PageHeaderStyle}
+        ghost={false}
+        title="생활농사"
+        // onBack={() => window.history.back()}
+        // subTitle="This is a subtitle"
+        extra={[
+          <Button key="3">HOME</Button>,
+          <Button key="2">회원가입</Button>,
+          <Button key="1" type="primary">
+            로그인
+          </Button>
+        ]}
+      ></PageHeader>
+    </div>
+    // <Header style={{ background: '#E0F8E0', height: "10vh"}}>
         //   <div className="logo" />
         //   <Row>
         //     <Col span={8} style={colStyle}>

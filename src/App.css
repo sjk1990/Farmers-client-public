@@ -1,0 +1,13 @@
+.ant-page-header-heading-title {
+  background-color: "#F5F5F5";
+  padding: 1vh;
+}
+
+.content-wrapper {
+  text-align: "left";
+}
+
+.ant-layout-footer {
+  text-align: "center";
+  height: "10vh";
+}

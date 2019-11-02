@@ -4,6 +4,13 @@ const { Header, Content, Footer } = Layout;
 const { Title } = Typography;
 
 const AutoCompleteOption = AutoComplete.Option;
+/***********************************************CSS*************************************************************/
+const headerStyle = { background: 'none', textAlign: 'center', margin: 'auto', width: '60vh', height: "5vh", paddingTop: "3vh" }
+const titleStyle = { textAlign: 'center' }
+const contentStyle = { textAlign: 'center', margin: 'auto', width: '60vh', height: "80vh" }
+const pTagStyle = { height: '2vh' }
+const footerStyle = { textAlign: 'center', height: "10vh" }
+/***************************************************************************************************************/
 
 class SignUp extends React.Component {
     state = {
@@ -77,12 +84,12 @@ class SignUp extends React.Component {
         ));
 
         return (
-            <Layout>
-                <Header style={{ padding: '10px', background: '#E0F8E0', height: "10vh" }}>
-                    <Title style={{ textAlign: 'center' }} level={1}>회원가입</Title>
+            <Layout style={{width: '40vw', height: '80vh', margin: 'auto', marginTop: '3vh', borderRadius: '1.5vh'}}>
+                <Header style={headerStyle}>
+                    <Title style={titleStyle} level={3}>회원가입</Title>
                 </Header>
-                <Content style={{ textAlign: 'center', margin: 'auto', width: '60vh', height: "80vh" }}>
-                    <p style={{ height: '2vh' }}></p>
+                <Content style={contentStyle}>
+                    <p style={pTagStyle}></p>
                     <Form {...formItemLayout} onSubmit={this.handleSubmit}>
                         <Form.Item label="username">
                             {getFieldDecorator('username', {
@@ -208,7 +215,7 @@ class SignUp extends React.Component {
                         </Form.Item>
                     </Form>
                 </Content>
-                <Footer style={{ textAlign: 'center', height: "10vh" }}>농 사 꾼 회 원 가 입 페 이 지</Footer>
+                <Footer style={footerStyle}></Footer>
             </Layout>
         );
     }
