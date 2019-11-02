@@ -37,8 +37,8 @@ const firstContent = {
 
 function Body() {
   return (
-    // <SignIn />
-    // <SignUp />
+    //<SignIn />
+    //<SignUp />
     <Content style={firstContent}>
       <SearchBox />
       <Content style={contentDesign}>

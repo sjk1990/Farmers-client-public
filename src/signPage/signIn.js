@@ -25,10 +25,17 @@ class SignIn extends React.Component {
   };
 
   render() {
+    // 헤더 삭제했는데 복구하자
+    // <Header style={{ padding: '10px', background: '#E0F8E0', height: "10vh" }}>
+    //   <Title style={{ textAlign: 'center' }} level={1}>로그인</Title>
+    // </Header>
     const { getFieldDecorator } = this.props.form;
     return (
     <div className = "layout-wrapper"style={layoutWrapperStyle}> 
       <Layout style={layoutStyle}>
+        {/* <Header style={{ padding: '10px', background: '#E0F8E0', height: "10vh" }}>
+          <Title style={{ textAlign: 'center' }} level={1}>회원가입</Title>
+        </Header> */}
         <Content style={contentStyle}>
           <Title style={headerTitleStyle} level={1}>로그인</Title>
           <Form onSubmit={this.handleSubmit} className="login-form" >
