@@ -1,6 +1,6 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
-import { Typography, Form, Icon, Input, Button, Checkbox, Layout } from 'antd';
+import { Typography, Form, Icon, Input, Button, Layout } from 'antd';
 const { Header, Content, Footer } = Layout;
 const { Title } = Typography;
 
