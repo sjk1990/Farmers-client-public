@@ -122,7 +122,7 @@ class SignIn extends React.Component {
                   )}
                 </Form.Item>
                 <Form.Item>
-                  <Button style={signinButtonStyle} type="primary" htmlType="submit" className="login-form-button">
+                  <Button onClick = {this.props.func} style={signinButtonStyle} type="primary" htmlType="submit" className="login-form-button">
                     로그인
               </Button>
                   {/* <p style={{ margin: '50px' }}></p> */}
