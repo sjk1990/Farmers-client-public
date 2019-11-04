@@ -15,6 +15,10 @@ const footerStyle = { textAlign: 'center', height: "10vh", textAlign: 'center'};
 /***************************************************************************************************************/
 
 class SignIn extends React.Component {
+  constructor(props) {
+    super(props)
+  }
+
   handleSubmit = e => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -24,18 +28,13 @@ class SignIn extends React.Component {
     });
   };
 
-  render() {
-    // 헤더 삭제했는데 복구하자
-    // <Header style={{ padding: '10px', background: '#E0F8E0', height: "10vh" }}>
-    //   <Title style={{ textAlign: 'center' }} level={1}>로그인</Title>
-    // </Header>
+  render() {    
+    // func가 props로 들어오는 것 확인
+    console.log(this.props.func) 
     const { getFieldDecorator } = this.props.form;
     return (
     <div className = "layout-wrapper"style={layoutWrapperStyle}> 
       <Layout style={layoutStyle}>
-        {/* <Header style={{ padding: '10px', background: '#E0F8E0', height: "10vh" }}>
-          <Title style={{ textAlign: 'center' }} level={1}>회원가입</Title>
-        </Header> */}
         <Content style={contentStyle}>
           <Title style={headerTitleStyle} level={1}>로그인</Title>
           <Form onSubmit={this.handleSubmit} className="login-form" >
@@ -63,7 +62,7 @@ class SignIn extends React.Component {
               )}
             </Form.Item>
             <Form.Item>
-              <Button style={signinButtonStyle} type="primary" htmlType="submit" className="login-form-button">
+              <Button onClick = {this.props.func} style={signinButtonStyle} type="primary" htmlType="submit" className="login-form-button">
                 로그인
               </Button>
               {/* <p style={{ margin: '50px' }}></p> */}
