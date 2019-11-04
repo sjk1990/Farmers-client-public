@@ -10,6 +10,24 @@ import WrappedSignUp from './signPage/signUp';
 const PageHeaderStyle = { width: '70vw', margin: 'auto', marginTop: '1vh', borderRadius: '1.5vh' }
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      signIn: false,
+      signUp: false
+    }
+    this.infoRegister = this.infoRegister.bind(this)
+    this.tryLogin = this.tryLogin.bind(this)
+  }
+  //이미 회원정보 있을때
+  infoRegister(e) {
+    !this.state.signUp ? alert('이미 존재하는 회원입니다.') : this.setState({ signUp: true })
+  }
+  //회원정보 일치할때
+  tryLogin(e) {
+    this.state.signIn ? this.setState({ signUp: true }) : alert('존재하지 않는 회원입니다.')
+  }
+
   render() {
     return (
       <Router>
@@ -34,9 +52,10 @@ class App extends Component {
               ]}
             ></PageHeader>
             <Switch>
+              {/* <Route exact path="/" component={Body} /> */}
+              <Route exact path="/" render={() => <Body></Body>} />
               <Route path="/signIn" component={WrappedSignIn} />
               <Route path="/signUp" component={WrappedSignUp} />
-              <Route path="/" component={Body} />
             </Switch>
           </div>
           <Bottom />
