@@ -1,22 +1,13 @@
-.App {
-  text-align: center;
+.ant-page-header-heading-title {
+  background-color: "#F5F5F5";
+  padding: 1vh;
 }
 
-.App-logo {
-  height: 40vmin;
+.content-wrapper {
+  text-align: "left";
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #09d3ac;
+.ant-layout-footer {
+  text-align: "center";
+  height: "10vh";
 }
