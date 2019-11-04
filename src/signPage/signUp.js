@@ -13,6 +13,10 @@ const footerStyle = { textAlign: 'center', height: "10vh" }
 /***************************************************************************************************************/
 
 class SignUp extends React.Component {
+    constructor(props)
+    {
+        super(props)
+    }
     state = {
         confirmDirty: false,
         autoCompleteResult: [],
@@ -51,6 +55,7 @@ class SignUp extends React.Component {
     };
 
     render() {
+        console.log(this.props)
         const { getFieldDecorator } = this.props.form;
         const { autoCompleteResult } = this.state;
 
@@ -97,7 +102,6 @@ class SignUp extends React.Component {
                             {getFieldDecorator('username', {
                                 rules: [
                                     {
-                                        type: 'username',
                                         message: 'The input is not valid username!',
                                     },
                                     {
@@ -127,19 +131,14 @@ class SignUp extends React.Component {
                                     {
                                         required: true,
                                         message: 'Please input your password!',
-                                    },
-                                    {
-                                        validator: this.validateToNextPassword,
-                                    },
+                                    },          
                                 ],
-                            })(<Input.Password />)}
+                            })(<Input />)}
                         </Form.Item>
-
                         <Form.Item label="location">
                             {getFieldDecorator('location', {
                                 rules: [
                                     {
-                                        type: 'location',
                                         message: 'The input is not valid location!',
                                     },
                                     {
@@ -149,12 +148,10 @@ class SignUp extends React.Component {
                                 ],
                             })(<Input />)}
                         </Form.Item>
-
                         <Form.Item label="category">
                             {getFieldDecorator('category', {
                                 rules: [
                                     {
-                                        type: 'category',
                                         message: 'The input is not valid category!',
                                     },
                                     {
@@ -164,12 +161,10 @@ class SignUp extends React.Component {
                                 ],
                             })(<Input />)}
                         </Form.Item>
-
                         <Form.Item label="term">
                             {getFieldDecorator('term', {
                                 rules: [
                                     {
-                                        type: 'term',
                                         message: 'The input is not valid term!',
                                     },
                                     {
@@ -184,7 +179,6 @@ class SignUp extends React.Component {
                             {getFieldDecorator('difficulty', {
                                 rules: [
                                     {
-                                        type: 'difficulty',
                                         message: 'The input is not valid difficulty!',
                                     },
                                     {
@@ -199,7 +193,6 @@ class SignUp extends React.Component {
                             {getFieldDecorator('labor', {
                                 rules: [
                                     {
-                                        type: 'labor',
                                         message: 'The input is not valid labor!',
                                     },
                                     {
@@ -211,9 +204,9 @@ class SignUp extends React.Component {
                         </Form.Item>
 
                         <Form.Item {...tailFormItemLayout}>
-                            <Button type="primary" htmlType="submit">
+                            <Button onClick = {this.props.func} type="primary" htmlType="submit">
                                 회원가입
-                    </Button>
+                            </Button>
                         </Form.Item>
                     </Form>
                 </Content>

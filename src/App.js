@@ -21,19 +21,43 @@ class App extends Component {
     this.tryLogin = this.tryLogin.bind(this);
   }
   //이미 회원정보 있을때
-  infoRegister(e) {
-    !this.state.signUp
-      ? alert('이미 존재하는 회원입니다.')
-      : this.setState({ signUp: true });
+  infoRegister() {
+    let url = 'http://localhost:8080/user/signup'
+    let newUser ={ 
+      "username" : "접니다",
+      "email" : "문제@gmadsfil.com", 
+      "password" : "12ki" , 
+      "location" : "Seoul", 
+      "category": "rice", 
+      "term" : 2, 
+      "difficulty" : 2, 
+      "labor": 1 
+     }
+    let newInfo = {
+      headers: 
+      {
+        // "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      method: "POST",
+      body: JSON.stringify(newUser)
+    }
+    console.log('새 회원정보 : ', newUser)
+    console.log('새 회원정보 : ', newInfo)
+
+    fetch(url,newInfo)
+    .then((res) => {
+      if (res.status === 201) {
+        res.json()
+        .then(json => console.log(json));
+      } else {
+        console.error(res.statusText);
+      }
+    }).catch(err => console.error(err));
   }
   //회원정보 일치할때
   tryLogin(e) {
-    console.log(document.getElementsByClassName('ant-input')[0].value) // 아이디 입력창의 값
-    console.log(document.getElementsByClassName('ant-input')[1].value) // 비밀번호 입력창의 값
-    !this.state.signIn
-      ? this.setState({ signIn: true })
-      : alert('존재하지 않는 회원입니다.');
-    console.log("로그인 상태값 : ",this.state.signIn) // 비밀번호 입력창의 값
+    
   }
 
   render() {
@@ -61,8 +85,9 @@ class App extends Component {
             ></PageHeader>
             <Switch>
               {/* <Route path="/signIn" component={() => <WrappedSignIn  func ={this.tryLogin}/>} /> */}
-              <Route path="/signIn" render = {props => <WrappedSignIn func = {this.tryLogin}/>} />
-              <Route path="/signUp" component={WrappedSignUp} />
+              <Route exact path="/" component={Body}/>} />
+              <Route path="/signIn" render = {() => <WrappedSignIn func = {this.tryLogin}/>} />
+              <Route path="/signUp" render={() => <WrappedSignUp func = {this.infoRegister}/>} />
             </Switch>
           </div>
           <Bottom />
