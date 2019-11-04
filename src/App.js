@@ -16,6 +16,7 @@ class App extends Component {
       signIn: false,
       signUp: false
     }
+
     this.infoRegister = this.infoRegister.bind(this);
     this.tryLogin = this.tryLogin.bind(this);
   }
@@ -34,6 +35,7 @@ class App extends Component {
       : alert('존재하지 않는 회원입니다.');
     console.log("로그인 상태값 : ",this.state.signIn) // 비밀번호 입력창의 값
   }
+
   render() {
     return (
       <Router>
@@ -61,7 +63,6 @@ class App extends Component {
               {/* <Route path="/signIn" component={() => <WrappedSignIn  func ={this.tryLogin}/>} /> */}
               <Route path="/signIn" render = {props => <WrappedSignIn func = {this.tryLogin}/>} />
               <Route path="/signUp" component={WrappedSignUp} />
-              <Route path="/" component={Body} />
             </Switch>
           </div>
           <Bottom />
