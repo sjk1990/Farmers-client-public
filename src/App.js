@@ -11,7 +11,7 @@ const PageHeaderStyle = { width: '70vw', margin: 'auto', marginTop: '1vh', borde
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       signIn: false,
       signUp: false
@@ -28,12 +28,11 @@ class App extends Component {
   }
   //회원정보 일치할때
   tryLogin(e) {
-    console.log(document.getElementsByClassName('ant-input')[0].value) // 아이디 입력창의 값
-    console.log(document.getElementsByClassName('ant-input')[1].value) // 비밀번호 입력창의 값
     !this.state.signIn
       ? this.setState({ signIn: true })
       : alert('존재하지 않는 회원입니다.');
-    console.log("로그인 상태값 : ",this.state.signIn) // 비밀번호 입력창의 값
+    // eslint-disable-next-line no-console
+    console.log('로그인 상태값 : ', this.state.signIn); // 비밀번호 입력창의 값
   }
 
   render() {
@@ -61,7 +60,12 @@ class App extends Component {
             ></PageHeader>
             <Switch>
               {/* <Route path="/signIn" component={() => <WrappedSignIn  func ={this.tryLogin}/>} /> */}
-              <Route path="/signIn" render = {props => <WrappedSignIn func = {this.tryLogin}/>} />
+              <Route exact path="/" component={Body} />
+              {/* <Route
+                path="/signIn"
+                render={() => <WrappedSignIn func={this.tryLogin} />}
+              /> */}
+              <Route exact path="/signIn" component={WrappedSignIn} />
               <Route path="/signUp" component={WrappedSignUp} />
             </Switch>
           </div>
