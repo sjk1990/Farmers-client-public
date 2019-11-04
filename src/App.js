@@ -11,7 +11,7 @@ const PageHeaderStyle = { width: '70vw', margin: 'auto', marginTop: '1vh', borde
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       signIn: false,
       signUp: false
@@ -57,7 +57,11 @@ class App extends Component {
   }
   //회원정보 일치할때
   tryLogin(e) {
-    
+//     !this.state.signIn
+//       ? this.setState({ signIn: true })
+//       : alert('존재하지 않는 회원입니다.');
+//     // eslint-disable-next-line no-console
+//     console.log('로그인 상태값 : ', this.state.signIn); // 비밀번호 입력창의 값
   }
 
   render() {
