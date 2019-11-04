@@ -78,11 +78,9 @@ class SignIn extends React.Component {
       });
   };
 
-  render() {
-    // 헤더 삭제했는데 복구하자
-    // <Header style={{ padding: '10px', background: '#E0F8E0', height: "10vh" }}>
-    //   <Title style={{ textAlign: 'center' }} level={1}>로그인</Title>
-    // </Header>
+  render() {    
+    // func가 props로 들어오는 것 확인
+    console.log(this.props.func) 
     const { getFieldDecorator } = this.props.form;
     return (
       <Router>
@@ -124,7 +122,7 @@ class SignIn extends React.Component {
                   )}
                 </Form.Item>
                 <Form.Item>
-                  <Button style={signinButtonStyle} type="primary" htmlType="submit" className="login-form-button">
+                  <Button onClick = {this.props.func} style={signinButtonStyle} type="primary" htmlType="submit" className="login-form-button">
                     로그인
               </Button>
                   {/* <p style={{ margin: '50px' }}></p> */}
@@ -150,60 +148,3 @@ const WrappedSignIn = Form.create({ name: 'normal_login' })(SignIn);
 
 export default WrappedSignIn;
 
-// // import { BrowserRouter as Route, Link } from 'react-router-dom';
-// import React from 'react';
-// import { Typography, Button, Input, Col, Row } from 'antd';
-// import { Layout } from 'antd';
-// const { Header, Footer, Content } = Layout;
-// const { Title } = Typography;
-
-// const SignIn = () => {
-//     return (
-//         <Layout>
-//             <Header style={{ background: '#E0F8E0', height: "10vh"}}>
-//             <Title style={{ textAlign: 'center' }} level={1}>로그인</Title>
-//             </Header>
-
-//             <Content style={{ padding: '0 50px', textAlign: 'center', height: "80vh", margin: '100px'}}>
-//                 <Row gutter={8}>
-//                 <Col span={24} offset={0} style={{ textAlign: 'center', margin: '30px auto' }}>
-//                 이메일: <Input placeholder="input e-mail" style={{ width: 400 }} />
-//                 </Col>
-//                 <Col span={24} style={{ textAlign: 'center', margin: '10px' }} >
-//                 비밀번호: <Input.Password placeholder="input password" style={{ width: 400 }} />
-//                 </Col>
-//                 <Button span={4} style={{ textAlign: 'center', height: '6vh', margin: '100px auto'}} type='primary'>
-//             로그인 {/* <Button style={{height: '10vh'}} type='primary' block>로그인</Button> */}
-//             </Button>
-//             </Row>
-//             </Content>
-
-//       <Footer style={{ textAlign: 'center', height: "10vh" }}>농 사 꾼 로 그 인 페 이 지</Footer>
-//         </Layout>
-//     )
-// };
-
-//  #components-form-demo-normal-login .login-form {
-//     max-width: 300px;
-//   }
-//   #components-form-demo-normal-login .login-form-forgot {
-//     float: right;
-//   }
-//   #components-form-demo-normal-login .login-form-button {
-//     width: 100%;
-//   }
-
-// export default SignIn;
-
-// import React from 'react';
-// import { Button } from 'antd';
-// // 테스트용 주석
-// function App() {
-//   return (
-//     <div className="App">
-//       <Button type="primary">I am Button</Button>
-//     </div>
-//   );
-// }
-
-// export default App;

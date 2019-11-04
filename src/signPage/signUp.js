@@ -62,7 +62,9 @@ class SignUp extends React.Component {
             },
             wrapperCol: {
                 xs: { span: 24 },
-                sm: { span: 16 },
+
+                sm: { span: 16 }
+
             },
         };
         const tailFormItemLayout = {
@@ -226,69 +228,3 @@ const WrappedSignUp = Form.create({ name: 'register' })(SignUp);
 //   ReactDOM.render(<WrappedSignUp />, mountNode);
 
 export default WrappedSignUp;
-
-{/* <Form.Item label="Website">
-{getFieldDecorator('website', {
-    rules: [{ required: true, message: 'Please input website!' }],
-})(
-    <AutoComplete
-        dataSource={websiteOptions}
-        onChange={this.handleWebsiteChange}
-        placeholder="website"
-    >
-        <Input />
-    </AutoComplete>,
-)}
-</Form.Item> */}
-
-// import React from 'react';
-// import { Typography, Button, Input, Col, Row } from 'antd';
-// import { Layout } from 'antd';
-// const { Header, Footer, Content } = Layout;
-// const { Title } = Typography;
-
-// const SignUp = () => {
-//     return (
-//         <Layout>
-//             <Header style={{ padding: '10px', background: '#E0F8E0', height: "10vh" }}>
-//                 <Title style={{ textAlign: 'center' }} level={1}>회원가입</Title>
-//             </Header>
-//             <Content style={{ padding: '30px', textAlign: 'center', height: "80vh" }}>
-//                 <Row gutter={[24, 24]}>
-//                     <Col span={16} style={{ textAlign: 'center' }}>
-//                         <p style={{ float: 'left' }}>username:</p>
-//                         <Input placeholder="input username" style={{ textAlign: 'right', width: 400 }} />
-//                     </Col>
-//                     <Col span={24} style={{ textAlign: 'center' }}>
-//                         email:<Input placeholder="input email" style={{ width: 400 }} />
-//                     </Col>
-//                     <Col span={24} style={{ textAlign: 'center' }}>
-//                         password:<Input.Password placeholder="input password" style={{ width: 400 }} />
-//                     </Col>
-//                     <Col span={24} style={{ textAlign: 'center' }}>
-//                         location:<Input placeholder="input location" style={{ width: 400 }} />
-//                     </Col>
-//                     <Col span={24} style={{ textAlign: 'center' }}>
-//                         category:<Input placeholder="input category" style={{ width: 400 }} />
-//                     </Col>
-//                     <Col span={24} style={{ textAlign: 'center' }}>
-//                         term:<Input placeholder="input term" style={{ width: 400 }} />
-//                     </Col>
-//                     <Col span={24} style={{ textAlign: 'center' }}>
-//                         difficulty:<Input placeholder="input difficulty" style={{ width: 400 }} />
-//                     </Col>
-//                     <Col span={24} style={{ textAlign: 'center' }}>
-//                         labor:<Input placeholder="input labor" style={{ width: 400 }} />
-//                     </Col>
-//                     <Button span={4} style={{ textAlign: 'center' }} type='primary'>
-//                         회원가입
-//                     </Button>
-//                 </Row>
-//             </Content>
-
-//             <Footer style={{ textAlign: 'center', height: "10vh" }}>농 사 꾼 회 원 가 입 페 이 지</Footer>
-//         </Layout >
-//     )
-// };
-
-// export default SignUp;

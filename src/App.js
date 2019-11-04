@@ -16,16 +16,24 @@ class App extends Component {
       signIn: false,
       signUp: false
     }
-    this.infoRegister = this.infoRegister.bind(this)
-    this.tryLogin = this.tryLogin.bind(this)
+
+    this.infoRegister = this.infoRegister.bind(this);
+    this.tryLogin = this.tryLogin.bind(this);
   }
   //이미 회원정보 있을때
   infoRegister(e) {
-    !this.state.signUp ? alert('이미 존재하는 회원입니다.') : this.setState({ signUp: true })
+    !this.state.signUp
+      ? alert('이미 존재하는 회원입니다.')
+      : this.setState({ signUp: true });
   }
   //회원정보 일치할때
   tryLogin(e) {
-    this.state.signIn ? this.setState({ signUp: true }) : alert('존재하지 않는 회원입니다.')
+    console.log(document.getElementsByClassName('ant-input')[0].value) // 아이디 입력창의 값
+    console.log(document.getElementsByClassName('ant-input')[1].value) // 비밀번호 입력창의 값
+    !this.state.signIn
+      ? this.setState({ signIn: true })
+      : alert('존재하지 않는 회원입니다.');
+    console.log("로그인 상태값 : ",this.state.signIn) // 비밀번호 입력창의 값
   }
 
   render() {
@@ -52,9 +60,8 @@ class App extends Component {
               ]}
             ></PageHeader>
             <Switch>
-              {/* <Route exact path="/" component={Body} /> */}
-              <Route exact path="/" render={() => <Body></Body>} />
-              <Route path="/signIn" component={WrappedSignIn} />
+              {/* <Route path="/signIn" component={() => <WrappedSignIn  func ={this.tryLogin}/>} /> */}
+              <Route path="/signIn" render = {props => <WrappedSignIn func = {this.tryLogin}/>} />
               <Route path="/signUp" component={WrappedSignUp} />
             </Switch>
           </div>
