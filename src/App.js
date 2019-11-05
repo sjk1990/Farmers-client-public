@@ -22,82 +22,96 @@ class App extends Component {
   }
   //이미 회원정보 있을때
   infoRegister() {
-    let url = 'http://localhost:8080/user/signup'
+    let url = "http://4274e56d.ngrok.io/user/signup"
+    let fakeURL = "http://localhost:8080/user/signup"
     let newUser ={ 
-      "username" : "접니다",
-      "email" : "문제@gmadsfil.com", 
-      "password" : "12ki" , 
-      "location" : "Seoul", 
-      "category": "rice", 
-      "term" : 2, 
-      "difficulty" : 2, 
-      "labor": 1 
+      "username" : document.getElementById("register_username").value,
+      "email" : document.getElementById("register_email").value, 
+      "password" : document.getElementById("register_password").value , 
+      "location" : document.getElementById("register_location").value, 
+      "category": document.getElementById("register_category").value, 
+      "term" : document.getElementById("register_term").value, // 숫자로만 입력
+      "difficulty" : document.getElementById("register_difficulty").value, // 숫자로만 입력
+      "labor": document.getElementById("register_labor").value // 숫자로만 입력
      }
     let newInfo = {
       headers: 
       {
-        // "Accept": "application/json",
         "Content-Type": "application/json"
       },
       method: "POST",
       body: JSON.stringify(newUser)
     }
-    console.log('새 회원정보 : ', newUser)
-    console.log('새 회원정보 : ', newInfo)
 
-    fetch(url,newInfo)
+    fetch(fakeURL,newInfo)
     .then((res) => {
       if (res.status === 201) {
-        res.json()
-        .then(json => console.log(json));
+        this.setState({signUp : true})
+      } else {
+        console.error(res.statusText);
+      }
+    })
+    .then(res => {
+      this.setState({signUp : false})
+    })
+    .catch(err => console.error(err));
+  }
+  //회원정보 일치할때
+  tryLogin(e) {
+    let url = "http://4274e56d.ngrok.io//user/signin"
+    let fakeURL = "http://localhost:8080/user/signin"
+    let newUser = { 
+      "email" : document.getElementById("normal_login_email").value, 
+      "password" : document.getElementById("normal_login_password").value , 
+     }
+    let newInfo = {
+    headers: 
+    {
+      "Content-Type": "application/json"
+    },
+    method: "POST",
+    body: JSON.stringify(newUser)
+    }
+
+    fetch(fakeURL,newInfo)
+    .then((res) => {
+      if (res.status === 200) {
+        this.setState({signIn : true})
       } else {
         console.error(res.statusText);
       }
     }).catch(err => console.error(err));
-  }
-  //회원정보 일치할때
-  tryLogin(e) {
-//     !this.state.signIn
-//       ? this.setState({ signIn: true })
-//       : alert('존재하지 않는 회원입니다.');
-//     // eslint-disable-next-line no-console
-//     console.log('로그인 상태값 : ', this.state.signIn); // 비밀번호 입력창의 값
-  }
+}
 
-  render() {
-    return (
-      <Router>
-        <Layout className="layout">
-          <div className="header-wrap">
-            <PageHeader
-              style={PageHeaderStyle}
-              ghost={false}
-              title="생활농사"
-              // onBack={() => window.history.back()}
-              // subTitle="This is a subtitle"
-              extra={[
-                <Button key="3">
-                  <Link to="/">HOME</Link>
-                </Button>,
-                <Button key="2">
-                  <Link to="/signUp">회원가입</Link>
-                </Button>,
-                <Button key="1" type="primary">
-                  <Link to="/signIn">로그인</Link>
-                </Button>
-              ]}
-            ></PageHeader>
-            <Switch>
-              {/* <Route path="/signIn" component={() => <WrappedSignIn  func ={this.tryLogin}/>} /> */}
-              <Route exact path="/" component={Body}/>} />
-              <Route path="/signIn" render = {() => <WrappedSignIn func = {this.tryLogin}/>} />
-              <Route path="/signUp" render={() => <WrappedSignUp func = {this.infoRegister}/>} />
-            </Switch>
-          </div>
-          <Bottom />
-        </Layout>
-      </Router>
-    );
-  }
+  render() {    
+      return (
+        <Router>
+          <Layout className="layout">
+            <div className="header-wrap">
+              <PageHeader style={PageHeaderStyle} ghost={false} title="생활농사" onBack={() => window.history.back()}
+                extra={[
+                  <Button key="3">
+                    <Link to="/">HOME</Link>
+                  </Button>,
+                  <Button key="2">
+                    <Link to="/signUp">회원가입</Link>
+                  </Button>,
+                  <Button key="1" type="primary">
+                    <Link to="/signIn">로그인</Link>
+                  </Button>
+                ]}
+              ></PageHeader>           
+              <Switch>                 
+                {/* <Route exact path="/" component={() => <Body />} /> */}
+                <Route exact path="/" component={Body} />
+                <Route path="/signIn" render = {() => <WrappedSignIn func = {this.tryLogin} signInBool = {this.state.signIn}/> } />
+                <Route path="/signUp" render={() => <WrappedSignUp func = {this.infoRegister} signUpBool = {this.state.signUp}/>} />
+              </Switch>
+            </div>
+            <Bottom />
+          </Layout>
+        </Router>
+      );
+    }  
 }
 export default App;

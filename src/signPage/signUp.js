@@ -1,5 +1,7 @@
 import React from 'react';
 import { Typography, Form, Input, Row, Col, Button, AutoComplete, Layout } from 'antd';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import WrappedSignIn from './signIn'
 const { Header, Content, Footer } = Layout;
 const { Title } = Typography;
 
@@ -54,8 +56,10 @@ class SignUp extends React.Component {
         this.setState({ autoCompleteResult });
     };
 
-    render() {
-        console.log(this.props)
+    render() {        
+        console.log("프롭스 : ", this.props)
+        console.log("회원가입여부 : ", this.props.signUpBool)
+
         const { getFieldDecorator } = this.props.form;
         const { autoCompleteResult } = this.state;
 
@@ -90,7 +94,11 @@ class SignUp extends React.Component {
             <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
         ));
 
-        return (
+        if(this.props.signUpBool === true){
+            return (<Redirect  from="signUp" to="/signIn"/>)
+        }
+        return (     
+        <Router>
             <Layout style={{width: '40vw', height: '80vh', margin: 'auto', marginTop: '3vh', borderRadius: '1.5vh'}}>
                 <Header style={headerStyle}>
                     <Title style={titleStyle} level={3}>회원가입</Title>
@@ -188,7 +196,6 @@ class SignUp extends React.Component {
                                 ],
                             })(<Input />)}
                         </Form.Item>
-
                         <Form.Item label="labor">
                             {getFieldDecorator('labor', {
                                 rules: [
@@ -202,16 +209,18 @@ class SignUp extends React.Component {
                                 ],
                             })(<Input />)}
                         </Form.Item>
-
                         <Form.Item {...tailFormItemLayout}>
-                            <Button onClick = {this.props.func} type="primary" htmlType="submit">
-                                회원가입
+                            {/* 만약 회원정보가 중복검사에 걸리지 않는다면 화면전환을 해야한다. */}                            
+                            <Button onClick={this.props.func} type="primary" htmlType="submit">                                
+                            회원가입
                             </Button>
                         </Form.Item>
+                        <Route path="/signIn" render = {() => <WrappedSignIn />} />
                     </Form>
                 </Content>
                 <Footer style={footerStyle}></Footer>
             </Layout>
+        </Router>
         );
     }
 }

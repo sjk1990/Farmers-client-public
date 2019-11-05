@@ -2,7 +2,7 @@ import React from 'react';
 // import ReactDOM from 'react-dom';
 import { Typography, Form, Icon, Input, Button, Layout } from 'antd';
 // import WrappedSignUp from '../signPage/signUp';
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Redirect } from "react-router-dom";
 const { Header, Content, Footer } = Layout;
 const { Title } = Typography;
 /***********************************************CSS*************************************************************/
@@ -64,10 +64,13 @@ class SignIn extends React.Component {
         // console.log(res);
       })
   };
-
+  
   render() {
+    console.log(this.props.SignIn)
+    if(this.props.signInBool === true){
+      return (<Redirect from="signIn" to="/"/>)
+    }
     // func가 props로 들어오는 것 확인
-    console.log(this.state)
     const { getFieldDecorator } = this.props.form;
     return (
       <Router>
@@ -109,8 +112,7 @@ class SignIn extends React.Component {
                   <Button onClick={this.props.func} style={signinButtonStyle} type="primary" htmlType="submit" className="login-form-button">
                     로그인
                   </Button>
-                  {/* <p style={{ margin: '50px' }}></p> */}
-                  <Button onClick={() => this.props.history.push("/signUp")}
+                  <Button onClick={this.props.func}
                     // 히스토리 prop을 이용해서 페이지 전환
                     style={signupButtonStyle} type="danger" htmlType="submit" className="SignUp-form-button">
                     회원가입
