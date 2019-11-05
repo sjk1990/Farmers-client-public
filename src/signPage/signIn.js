@@ -39,9 +39,9 @@ class SignIn extends React.Component {
   }
 
   render() {
-    console.log(this.props);
-    // func가 props로 들어오는 것 확인
-    // console.log(this.state);
+    if(this.props.signInBool === true){
+      return (<Redirect from="signIn" to="/"/>)
+    }
     const { getFieldDecorator } = this.props.form;
 
     if (this.props.signInBool === true) {
@@ -52,9 +52,6 @@ class SignIn extends React.Component {
       <Router>
         <div className="layout-wrapper" style={layoutWrapperStyle}>
           <Layout style={layoutStyle}>
-            {/* <Header style={{ padding: '10px', background: '#E0F8E0', height: "10vh" }}>
-          <Title style={{ textAlign: 'center' }} level={1}>회원가입</Title>
-        </Header> */}
             <Content style={contentStyle}>
               <Title style={headerTitleStyle} level={1}>
                 로그인
@@ -122,7 +119,5 @@ class SignIn extends React.Component {
 }
 
 const WrappedSignIn = Form.create({ name: "normal_login" })(SignIn);
-
-// ReactDOM.render(<WrappedSignIn />, mountNode);
 
 export default WrappedSignIn;
