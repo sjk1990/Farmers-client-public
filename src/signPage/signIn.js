@@ -36,16 +36,20 @@ const footerStyle = {
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      change: false
+    }
   }
 
   render() {
-    if(this.props.signInBool === true){
-      return (<Redirect from="signIn" to="/"/>)
-    }
     const { getFieldDecorator } = this.props.form;
 
     if (this.props.signInBool === true) {
       return <Redirect to="/" from="/signIn"></Redirect>
+    }
+
+    if (this.state.change === true) {
+      return <Redirect to="/signUp" from="/signIn"></Redirect>
     }
 
     return (
@@ -98,7 +102,8 @@ class SignIn extends React.Component {
                     로그인
                   </Button>
                   <Button
-                    onClick={() => this.props.history.push("/signUp")}
+                    onClick={() => this.setState({ change: true })}
+                    // onClick={() => this.props.history.push("/signUp")}
                     // 히스토리 prop을 이용해서 페이지 전환 render X, component 일 경우에만 동작함.
                     style={signupButtonStyle}
                     type="danger"
