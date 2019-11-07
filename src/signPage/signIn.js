@@ -52,6 +52,9 @@ class SignIn extends React.Component {
       return <Redirect to="/signUp" from="/signIn"></Redirect>
     }
 
+    console.log("내려오는 함수 login :", this.props.login)
+    console.log("내려오는 함수 logout :", this.props.logout)
+
     return (
       <Router>
         <div className="layout-wrapper" style={layoutWrapperStyle}>
@@ -93,7 +96,7 @@ class SignIn extends React.Component {
                 </Form.Item>
                 <Form.Item>
                   <Button
-                    onClick={this.props.func}
+                    onClick={this.props.signInBool ? this.props.logout : this.props.login}
                     style={signinButtonStyle}
                     type="primary"
                     htmlType="submit"
