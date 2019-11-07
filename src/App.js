@@ -11,10 +11,6 @@ import { Button, PageHeader } from "antd";
 import WrappedSignIn from "./signPage/signIn";
 import WrappedSignUp from "./signPage/signUp";
 
-
-import { CoverageSummary } from "istanbul-lib-coverage";
-import { sign } from "crypto";
-import { animationFrameScheduler } from "rxjs";
 const PageHeaderStyle = {
   width: "70vw",
   margin: "auto",
@@ -53,7 +49,8 @@ class App extends Component {
     let newInfo = {
       headers:
       {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Cookie": "token=token"
       },
       method: "POST",
       body: JSON.stringify(newUser)
@@ -85,20 +82,33 @@ class App extends Component {
     };
 
     fetch(url, {
+      // mode: "same-origin",
       method: "POST",
       body: JSON.stringify(login_info),
       // credentials: "include",
       headers: {
         "Content-Type": "application/json"
-      }
+      },
+      credentials: "include"
+      // credentials: "same-origin" // 동일 origin 에서 동일 쿠키 유지 ==> 로그인 유지
     })
+      // axios.post(url, {
+      //   headers: {
+      //     'Content-type': 'application/json'
+      //   }, body: JSON.stringify(login_info)
+      // })
       .then(res => {
+        // console.log(res.headers.get('set-cookie'))
+        console.log(res)
+        // console.log(res.headers); // undefined
+        console.log(document.cookie);
+
         if (res.status === 200) {
           this.setState({ signIn: true });
-          console.log("응답토큰 : ",res.body)
           return alert('로그인되었습니다.');
         }
       })
+      .then(data => console.log(data))
       .catch(err => console.error(err));
   }
   tryLogout(e) {
