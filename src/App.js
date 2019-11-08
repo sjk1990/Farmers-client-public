@@ -22,7 +22,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      signIn: false,
+      signIn: false, // 다시 false로 가야한다.
       signUp: false,
       // isLogin: false
     };
@@ -30,12 +30,13 @@ class App extends Component {
     this.infoRegister = this.infoRegister.bind(this);
     this.tryLogin = this.tryLogin.bind(this);
     this.tryLogout = this.tryLogout.bind(this);
+    // this.getCrops = this.getCrops.bind(this)
   }
 
   //이미 회원정보 있을때
   infoRegister() {
-    let url = "http://4274e56d.ngrok.io/user/signup"
-    let fakeURL = "http://localhost:5000/user/signup"
+    let url = "http://7c95ad4e.ngrok.io/user/signup"
+    // let url = "http://localhost:5000/user/signup"
     let newUser = {
       "username": document.getElementById("register_username").value,
       "email": document.getElementById("register_email").value,
@@ -56,7 +57,7 @@ class App extends Component {
       body: JSON.stringify(newUser)
     }
 
-    fetch(fakeURL, newInfo)
+    fetch(url, newInfo)
       .then((res) => {
         if (res.status === 201) {
           this.setState({ signUp: true })
@@ -74,35 +75,22 @@ class App extends Component {
   tryLogin(e) {
     e.preventDefault();
 
-    let url = "http://localhost:5000/user/signin";
-    // let url = "http://36ae2499.ngrok.io/user/signin";
+    let url = "http://7c95ad4e.ngrok.io/user/signin";
+    // let url = "http://localhost:5000/user/signin";
     let login_info = {
       "email": document.querySelector("#normal_login_email").value,
       "password": document.querySelector("#normal_login_password").value
     };
 
     fetch(url, {
-      // mode: "same-origin",
       method: "POST",
       body: JSON.stringify(login_info),
-      // credentials: "include",
       headers: {
         "Content-Type": "application/json"
       },
-      credentials: "include"
-      // credentials: "same-origin" // 동일 origin 에서 동일 쿠키 유지 ==> 로그인 유지
+      credentials: "include"      
     })
-      // axios.post(url, {
-      //   headers: {
-      //     'Content-type': 'application/json'
-      //   }, body: JSON.stringify(login_info)
-      // })
-      .then(res => {
-        // console.log(res.headers.get('set-cookie'))
-        console.log(res)
-        // console.log(res.headers); // undefined
-        console.log(document.cookie);
-
+      .then(res => {       
         if (res.status === 200) {
           this.setState({ signIn: true });
           return alert('로그인되었습니다.');
@@ -111,34 +99,65 @@ class App extends Component {
       .then(data => console.log(data))
       .catch(err => console.error(err));
   }
-  tryLogout(e) {
-    console.log("nihao");
-    alert("nihao");
-    this.setState({})
+  tryLogout(e) {    
+    let url = "http://7c95ad4e.ngrok.io/user/signout";
+    // let url = "http://localhost:5000/user/signout";
 
+    // let login_info = {
+    //   "email": document.querySelector("#normal_login_email").value,
+    //   "password": document.querySelector("#normal_login_password").value
+    // };
+
+    fetch(url, {
+      method: "POST",    
+      headers: {
+        "Content-Type": "application/json"
+      },
+      credentials: "include"      
+    })
+      .then(res => {       
+        if (res.status === 200) {
+          this.setState({signIn : false})
+          alert('로그아웃 되었습니다.')    
+        }  // 로그인 조건 만족?        
+      })
+      .then(data => console.log(data))
+      .catch(err => console.error(err));
   }
 
- 
-  //로그인 되면 바로 렌더링 될 수 있게
-  //로그인 시 true인 state값(signIn: true)에 따라 실행되도록?
-  getCrops() {
-    let url = "http://localhost:5000/crop/reco";
-    // let url = "http://e218b6bc.ngrok.io/crop/reco";
-    fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }).then(res => {
-      if (this.state.signIn && (res.status === 200)) { // 로그인 조건 만족?
-        return res.json();
-      }
-    })
-      // .then( // 렌더링 방식 결정
-      //   callback? body-recommend-ptag 안에 렌더링 해 준다.
-      //   body-recommend도 signIn 의 state에 따라signIn
-      //   서버에서 배열속에 정보를 담아 리턴해줌)signIn
-      .catch(err => console.error(err));
+  
+  // signIn의 로그인 버튼에 기능을 걸어둔다.
+  // 로그인 시 true인 state값(signIn: true)에 따라 실행되도록?
+  // 로그인 화면으로 이동한 후 자동 요청
+  // getCrops() {
+    
+  // }
+
+  componentDidUpdate()
+  {
+    if(this.state.signIn)
+    {
+      console.log("페치실행")
+      let url = "http://7c95ad4e.ngrok.io/crop/reco";
+      // let url = "http://localhost:5000/crop/reco";
+
+      fetch(url, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+        , credentials: 'include'
+      })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res)
+        if(res.status === 200){
+          console.log("200 는 : ", res)
+        }  // 로그인 조건 만족?        
+          // console.log("나는 농작물 정보를 받아온다:",res)
+        })
+        .catch(err => console.error(err));  
+    }
   }
 
   

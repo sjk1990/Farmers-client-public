@@ -1,12 +1,9 @@
 import React from 'react';
 import { Layout, Select, Input } from 'antd';
-import SignIn from '../../signPage/signIn.js';
-import SignUp from '../../signPage/signUp.js';
+// import SignIn from '../../signPage/signIn.js';
+// import SignUp from '../../signPage/signUp.js';
 
 // 로그인 이전에
-
-
-
 
 const { Content } = Layout;
 
@@ -27,6 +24,9 @@ const firstContent = {
   height: '80vh',
   marginTop: '2vh',
 };
+const subTitle = {
+  paddingTop : "1vh"
+}
 /***********************************************************************************************************/
 
 function BeforeLogin() {
@@ -37,30 +37,24 @@ function BeforeLogin() {
       <Content style={contentDesign}>
       <div className="content-wrapper" style={{ textAlign: 'left' }}>      
       <div className="wrap-crop-content">
-        <strong className="crop-name">인사말</strong>
-         <p className="crop-description">
-            안녕하세요 여러분
-         </p>
+        <h2 style ={subTitle}>농업의 대중화를 위하여</h2>
+        <p>작물 좀 길러보실텨?</p>
         </div>
      </div>
       </Content>
       <Content style={contentDesign}>
       <div className="content-wrapper" style={{ textAlign: 'left' }}>      
       <div className="wrap-crop-content">
-        <strong className="crop-name">greeting</strong>
-         <p className="crop-description">
-            Hello Agriculture
-         </p>
+        <h2 style ={subTitle}>농업의 대중화를 위하여</h2>
+        <p>작물 좀 길러보실텨?</p>
         </div>
      </div>
       </Content>
       <Content style={contentDesign}>
       <div className="content-wrapper" style={{ textAlign: 'left' }}>      
       <div className="wrap-crop-content">
-        <strong className="crop-name">Insa</strong>
-         <p className="crop-description">
-            nihao
-         </p>
+        <h2 style ={subTitle}>농업의 대중화를 위하여</h2>
+        <p>작물 좀 길러보실텨?</p>
         </div>
      </div>
       </Content>
