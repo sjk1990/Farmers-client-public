@@ -52,8 +52,8 @@ class SignIn extends React.Component {
       return <Redirect to="/signUp" from="/signIn"></Redirect>
     }
 
-    console.log("내려오는 함수 login :", this.props.login)
-    console.log("내려오는 함수 logout :", this.props.logout)
+    // console.log("내려오는 함수 login :", this.props.login)
+    // console.log("내려오는 함수 logout :", this.props.logout)
 
     return (
       <Router>
