@@ -15,8 +15,7 @@ const footerStyle = { textAlign: 'center', height: "10vh" }
 /***************************************************************************************************************/
 
 class SignUp extends React.Component {
-    constructor(props)
-    {
+    constructor(props) {
         super(props)
     }
     state = {
@@ -56,7 +55,7 @@ class SignUp extends React.Component {
         this.setState({ autoCompleteResult });
     };
 
-    render() {        
+    render() {
         console.log("프롭스 : ", this.props)
         console.log("회원가입여부 : ", this.props.signUpBool)
 
@@ -94,133 +93,133 @@ class SignUp extends React.Component {
             <AutoCompleteOption key={website}>{website}</AutoCompleteOption>
         ));
 
-        if(this.props.signUpBool === true){
-            return (<Redirect  from="signUp" to="/signIn"/>)
+        if (this.props.signUpBool === true) {
+            return (<Redirect from="signUp" to="/signIn" />)
         }
-        return (     
-        <Router>
-            <Layout style={{width: '40vw', height: '80vh', margin: 'auto', marginTop: '3vh', borderRadius: '1.5vh'}}>
-                <Header style={headerStyle}>
-                    <Title style={titleStyle} level={3}>회원가입</Title>
-                </Header>
-                <Content style={contentStyle}>
-                    <p style={pTagStyle}></p>
-                    <Form {...formItemLayout} onSubmit={this.handleSubmit}>
-                        <Form.Item label="username">
-                            {getFieldDecorator('username', {
-                                rules: [
-                                    {
-                                        message: 'The input is not valid username!',
-                                    },
-                                    {
-                                        required: true,
-                                        message: 'Please input your username!',
-                                    },
-                                ],
-                            })(<Input />)}
-                        </Form.Item>
-                        <Form.Item label="email">
-                            {getFieldDecorator('email', {
-                                rules: [
-                                    {
-                                        type: 'email',
-                                        message: 'The input is not valid email!',
-                                    },
-                                    {
-                                        required: true,
-                                        message: 'Please input your email!',
-                                    },
-                                ],
-                            })(<Input />)}
-                        </Form.Item>
-                        <Form.Item label="Password" hasFeedback>
-                            {getFieldDecorator('password', {
-                                rules: [
-                                    {
-                                        required: true,
-                                        message: 'Please input your password!',
-                                    },          
-                                ],
-                            })(<Input />)}
-                        </Form.Item>
-                        <Form.Item label="location">
-                            {getFieldDecorator('location', {
-                                rules: [
-                                    {
-                                        message: 'The input is not valid location!',
-                                    },
-                                    {
-                                        required: true,
-                                        message: 'Please input your location!',
-                                    },
-                                ],
-                            })(<Input />)}
-                        </Form.Item>
-                        <Form.Item label="category">
-                            {getFieldDecorator('category', {
-                                rules: [
-                                    {
-                                        message: 'The input is not valid category!',
-                                    },
-                                    {
-                                        required: true,
-                                        message: 'Please input your category!',
-                                    },
-                                ],
-                            })(<Input />)}
-                        </Form.Item>
-                        <Form.Item label="term">
-                            {getFieldDecorator('term', {
-                                rules: [
-                                    {
-                                        message: 'The input is not valid term!',
-                                    },
-                                    {
-                                        required: true,
-                                        message: 'Please input your term!',
-                                    },
-                                ],
-                            })(<Input />)}
-                        </Form.Item>
+        return (
+            <Router>
+                <Layout style={{ width: '40vw', height: '80vh', margin: 'auto', marginTop: '3vh', borderRadius: '1.5vh' }}>
+                    <Header style={headerStyle}>
+                        <Title style={titleStyle} level={3}>회원가입</Title>
+                    </Header>
+                    <Content style={contentStyle}>
+                        <p style={pTagStyle}></p>
+                        <Form {...formItemLayout} onSubmit={this.handleSubmit}>
+                            <Form.Item label="username">
+                                {getFieldDecorator('username', {
+                                    rules: [
+                                        {
+                                            message: 'The input is not valid username!',
+                                        },
+                                        {
+                                            required: true,
+                                            message: 'Please input your username!',
+                                        },
+                                    ],
+                                })(<Input />)}
+                            </Form.Item>
+                            <Form.Item label="email">
+                                {getFieldDecorator('email', {
+                                    rules: [
+                                        {
+                                            type: 'email',
+                                            message: 'The input is not valid email!',
+                                        },
+                                        {
+                                            required: true,
+                                            message: 'Please input your email!',
+                                        },
+                                    ],
+                                })(<Input />)}
+                            </Form.Item>
+                            <Form.Item label="Password" hasFeedback>
+                                {getFieldDecorator('password', {
+                                    rules: [
+                                        {
+                                            required: true,
+                                            message: 'Please input your password!',
+                                        },
+                                    ],
+                                })(<Input />)}
+                            </Form.Item>
+                            <Form.Item label="location">
+                                {getFieldDecorator('location', {
+                                    rules: [
+                                        {
+                                            message: 'The input is not valid location!',
+                                        },
+                                        {
+                                            required: true,
+                                            message: 'Please input your location!',
+                                        },
+                                    ],
+                                })(<Input />)}
+                            </Form.Item>
+                            <Form.Item label="category">
+                                {getFieldDecorator('category', {
+                                    rules: [
+                                        {
+                                            message: 'The input is not valid category!',
+                                        },
+                                        {
+                                            required: false,
+                                            message: 'Please input your category!',
+                                        },
+                                    ],
+                                })(<Input />)}
+                            </Form.Item>
+                            <Form.Item label="term">
+                                {getFieldDecorator('term', {
+                                    rules: [
+                                        {
+                                            message: 'The input is not valid term!',
+                                        },
+                                        {
+                                            required: false,
+                                            message: 'Please input your term!',
+                                        },
+                                    ],
+                                })(<Input />)}
+                            </Form.Item>
 
-                        <Form.Item label="difficulty">
-                            {getFieldDecorator('difficulty', {
-                                rules: [
-                                    {
-                                        message: 'The input is not valid difficulty!',
-                                    },
-                                    {
-                                        required: false,
-                                        message: 'Please input your difficulty!',
-                                    },
-                                ],
-                            })(<Input />)}
-                        </Form.Item>
-                        <Form.Item label="labor">
-                            {getFieldDecorator('labor', {
-                                rules: [
-                                    {
-                                        message: 'The input is not valid labor!',
-                                    },
-                                    {
-                                        required: true,
-                                        message: 'Please input your labor!',
-                                    },
-                                ],
-                            })(<Input />)}
-                        </Form.Item>
-                        <Form.Item {...tailFormItemLayout}>
-                            {/* 만약 회원정보가 중복검사에 걸리지 않는다면 화면전환을 해야한다. */}                            
-                            <Button onClick={this.props.func} type="primary" htmlType="submit">                                
-                            회원가입
+                            <Form.Item label="difficulty">
+                                {getFieldDecorator('difficulty', {
+                                    rules: [
+                                        {
+                                            message: 'The input is not valid difficulty!',
+                                        },
+                                        {
+                                            required: false,
+                                            message: 'Please input your difficulty!',
+                                        },
+                                    ],
+                                })(<Input />)}
+                            </Form.Item>
+                            <Form.Item label="labor">
+                                {getFieldDecorator('labor', {
+                                    rules: [
+                                        {
+                                            message: 'The input is not valid labor!',
+                                        },
+                                        {
+                                            required: false,
+                                            message: 'Please input your labor!',
+                                        },
+                                    ],
+                                })(<Input />)}
+                            </Form.Item>
+                            <Form.Item {...tailFormItemLayout}>
+                                {/* 만약 회원정보가 중복검사에 걸리지 않는다면 화면전환을 해야한다. */}
+                                <Button onClick={this.props.func} type="primary" htmlType="submit">
+                                    회원가입
                             </Button>
-                        </Form.Item>
-                        <Route path="/signIn" render = {() => <WrappedSignIn />} />
-                    </Form>
-                </Content>
-                <Footer style={footerStyle}></Footer>
-            </Layout>
-        </Router>
+                            </Form.Item>
+                            <Route path="/signIn" render={() => <WrappedSignIn />} />
+                        </Form>
+                    </Content>
+                    <Footer style={footerStyle}></Footer>
+                </Layout>
+            </Router>
         );
     }
 }
