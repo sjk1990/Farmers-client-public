@@ -16,14 +16,14 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### 기술 및 스택
 
-- 프론트엔드
-  react
-  react-router
-  antDesign
+- 프론트엔드</br>
+  react</br>
+  react-router</br>
+  antDesign</br></br>
   
-- 백엔드
-  node.js(express)
-  mysql(sequelize)
+- 백엔드</br>
+  node.js(express)</br>
+  mysql(sequelize)</br>
   
 ### `yarn build`
 
