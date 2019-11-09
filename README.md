@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - 거주/관심 지역,
 - 관심 작물 (과일/채소/허브),
 - 생육 기간 / 노동량 / 난이도 등을
-고려하여 딱 맞는 농작물을 추천해드립니다.
+고려하여 딱 맞는 농작물을 추천해드립니다.</br>
 생명을 가꾸고 수확의 보람을 느껴보세요!
 
 ### 앱의 기능
