@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Typography, Divider } from 'antd';
 import FavoriteBefore from './favoritebefore';
 import FavoriteAfter from './favoriteafter';
+import potato from '../body-components/image/potato.png'
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -63,7 +64,7 @@ class Favorite extends Component {
       !this.state.cropinfo.length ? 
       <FavoriteBefore /> : 
       <div>
-        <img src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" className="content-image" style = {imgStyle}></img>
+        <img src={potato} className="content-image" style = {imgStyle}></img>
         <div style ={{float: "right", width: "50vw"}}> 
           <FavoriteAfter val={this.state.cropinfo[0]} />
         </div>

@@ -1,14 +1,6 @@
 import React, { Component } from 'react'
 import { Descriptions } from "antd";
 
-let imgStyle = {
-    borderRadius: '1vw',
-    height: '20vh',
-    marginTop: '1vh',
-    marginRight: '2vw',
-    float: 'left'
-};
-
 class FavoriteAfter extends Component {
     constructor(props) {
         super(props)
