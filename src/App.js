@@ -6,7 +6,7 @@ import Body from "./mainPage/component/body";
 import Bottom from "./mainPage/component/footer";
 import BeforeLogin from "./mainPage/component/beforeLogin.js"
 
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { Button, PageHeader } from "antd";
 import WrappedSignIn from "./signPage/signIn";
 import WrappedSignUp from "./signPage/signUp";
@@ -35,7 +35,7 @@ class App extends Component {
 
   //이미 회원정보 있을때
   infoRegister() {
-    let url = "http://7c95ad4e.ngrok.io/user/signup"
+    let url = "http://989e595a.ngrok.io/user/signup"
     // let url = "http://localhost:5000/user/signup"
     let newUser = {
       "username": document.getElementById("register_username").value,
@@ -72,10 +72,8 @@ class App extends Component {
   }
 
   //회원정보 일치할때
-  tryLogin(e) {
-    e.preventDefault();
-
-    let url = "http://7c95ad4e.ngrok.io/user/signin";
+  tryLogin() {    
+    let url = "http://989e595a.ngrok.io/user/signin";
     // let url = "http://localhost:5000/user/signin";
     let login_info = {
       "email": document.querySelector("#normal_login_email").value,
@@ -99,14 +97,9 @@ class App extends Component {
       .then(data => console.log(data))
       .catch(err => console.error(err));
   }
-  tryLogout(e) {    
-    let url = "http://7c95ad4e.ngrok.io/user/signout";
+  tryLogout() {    
+    let url = "http://989e595a.ngrok.io/user/signout";
     // let url = "http://localhost:5000/user/signout";
-
-    // let login_info = {
-    //   "email": document.querySelector("#normal_login_email").value,
-    //   "password": document.querySelector("#normal_login_password").value
-    // };
 
     fetch(url, {
       method: "POST",    
@@ -124,21 +117,13 @@ class App extends Component {
       .then(data => console.log(data))
       .catch(err => console.error(err));
   }
-
-  
-  // signIn의 로그인 버튼에 기능을 걸어둔다.
-  // 로그인 시 true인 state값(signIn: true)에 따라 실행되도록?
-  // 로그인 화면으로 이동한 후 자동 요청
-  // getCrops() {
-    
-  // }
-
+ 
   componentDidUpdate()
   {
     if(this.state.signIn)
     {
       console.log("페치실행")
-      let url = "http://7c95ad4e.ngrok.io/crop/reco";
+      let url = "http://989e595a.ngrok.io/crop/reco";
       // let url = "http://localhost:5000/crop/reco";
 
       fetch(url, {
@@ -151,12 +136,12 @@ class App extends Component {
       .then(res => res.json())
       .then(res => {
         console.log(res)
-        if(res.status === 200){
+        if(res.status === 200)
+        {
           console.log("200 는 : ", res)
-        }  // 로그인 조건 만족?        
-          // console.log("나는 농작물 정보를 받아온다:",res)
-        })
-        .catch(err => console.error(err));  
+        }
+      })
+      .catch(err => console.error(err));  
     }
   }
 
