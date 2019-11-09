@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Layout, Select, Input } from 'antd';
-import Favorite from './body-components/favorite.js';
+import Favorite from './body-components/favorite';
 import Recommend from '../component/body-components/recommend.js';
-import TrafficLight from '../component/body-components/trafficLight.js';
+// import TrafficLight from '../component/body-components/trafficLight';
 import SearchBox from '../component/body-components/searchBox.js';
 // import SerchResult from '../component/body-components/afterSearch';
 
@@ -48,7 +48,7 @@ class Body extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      search: false,
+      searchCrop: false,
       deliver: []
     }
     this.searched = this.searched.bind(this)
@@ -56,7 +56,7 @@ class Body extends Component {
   }
 
   searched() {
-    this.setState({ search: true })
+    this.setState({ searchCrop: true })
   }
 
   deliverCrop(data) {
@@ -66,15 +66,15 @@ class Body extends Component {
   render() {
     console.log(this.state)
     return (
-      // this.state ?
-      //   <SerchResult val={this.state.deliver[0]} /> :
+      this.state.searchCrop ?
+        <SerchResult val={this.state.deliver} /> :
         <Content style={firstContent}>
           <SearchBox func={this.searched} func2={this.deliverCrop} />
           <Content style={favoriteDesign}>
             <Favorite />
           </Content>
           <Content style={contentDesign}>
-            <TrafficLight />
+            {/* <TrafficLight /> */}
           </Content>
           <Content style={contentDesign}>
             <Recommend />
