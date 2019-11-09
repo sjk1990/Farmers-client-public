@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Typography, Divider } from 'antd';
-import FavoriteBefore from './favoritebegore';
+import FavoriteBefore from './favoritebefore';
 import FavoriteAfter from './favoriteafter';
 
 const { Title, Paragraph, Text } = Typography;
@@ -26,11 +26,16 @@ class Favorite extends Component {
     }
   }
 
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   console.log("shouldComponentUpdate: ", JSON.stringify(nextState));
+  //   return true;
+  // }
+
   componentDidMount() {
     // if (this.state.signIn) {
     console.log("페치실행")
-    // let url = "http://2560c8d9.ngrok.io/crop/reco";
-    let url = "http://localhost:5000/crop/reco";
+    let url = "http://b86d19e2.ngrok.io/crop/reco";
+    // let url = "http://localhost:5000/crop/reco";
 
     fetch(url, {
       method: 'GET',
@@ -41,10 +46,11 @@ class Favorite extends Component {
     })
       .then(res => res.json())
       .then(res => {
-
+        console.log(res)
         let arr = [res[0]];
         this.setState({ cropinfo: arr })
-        console.log('cropinfo::::', this.state.cropinfo)
+        console.log(this.state.cropinfo)
+        // console.log('cropinfo::::', this.state.cropinfo)
 
         // console.log(res)
         // if (res.status === 200) { ==> 작동 X.

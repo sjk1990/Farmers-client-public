@@ -21,7 +21,7 @@ class FavoriteAfter extends Component {
                     className="content-image"
                     style={imgStyle}
                 ></img>
-                <div>
+                <div>{console.log(this.props.val)}
                     <strong className="crop-name">작물 이름 :{this.props.val.cropname}</strong>
                 </div>
                 <div>분류 : {this.props.val.category}</div>

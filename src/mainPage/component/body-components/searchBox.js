@@ -27,12 +27,12 @@ class SearchBox extends Component {
 
   searchCrop(keyword) {
 
-    let url = `http://localhost:5000/search/${keyword}`;
+    let url = `http://b86d19e2.ngrok.io/search/${keyword}`;
     fetch(url)
       .then(res => res.json())
       .then(res => {
         console.log(res)
-        let arr = [res[0]];
+        let arr = [res];
         this.props.func2(arr)
       })
       .catch(err => console.error(err));
