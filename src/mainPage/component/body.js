@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Layout, Select, Input } from 'antd';
-import Favorite from '../component/body-components/favorite.js';
+import Favorite from './body-components/favorite.js/index.js.js';
 import Recommend from '../component/body-components/recommend.js';
 import TrafficLight from '../component/body-components/trafficLight.js';
 import SearchBox from '../component/body-components/searchBox.js';
-
-import SignIn from '../../signPage/signIn.js';
-import SignUp from '../../signPage/signUp.js';
+import SerchResult from '../component/body-components/afterSearch';
 
 
 // import Favorite from './body-favorite';
@@ -34,24 +32,44 @@ const firstContent = {
   marginTop: '2vh',
 };
 /***********************************************************************************************************/
+class Body extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      search: false,
+      deliver: []
+    }
+    this.searchCrop = this.searchCrop.bind(this)
+    this.deliverCrop = this.deliverCrop.bind(this)
+  }
 
-function Body() {
-  return (
-    //<SignIn />
-    //<SignUp />
-    <Content style={firstContent}>
-      <SearchBox />
-      <Content style={contentDesign}>
-        <Favorite />
-      </Content>
-      <Content style={contentDesign}>
-        <TrafficLight />
-      </Content>
-      <Content style={contentDesign}>
-        <Recommend />
-      </Content>
-    </Content>
-  );
+  searched() {
+    this.setState({ search: true })
+  }
+
+  deliverCrop(data) {
+    this.setState({ deliver: data })
+  }
+
+  render() {
+    console.log(this.state)
+    return (
+      this.state ?
+        <SerchResult val={this.state.deliver[0]} /> :
+        <Content style={firstContent}>
+          <SearchBox func={this.searched} func2={this.deliverCrop} />
+          <Content style={contentDesign}>
+            <Favorite />
+          </Content>
+          <Content style={contentDesign}>
+            <TrafficLight />
+          </Content>
+          <Content style={contentDesign}>
+            <Recommend />
+          </Content>
+        </Content>
+    )
+  }
 }
 
 export default Body;

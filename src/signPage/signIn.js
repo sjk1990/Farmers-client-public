@@ -89,6 +89,7 @@ class SignIn extends React.Component {
                     <Input
                       // value={this.state.password}
                       prefix={<Icon type="lock" />}
+                      type="password"
                       placeholder="비밀번호를 입력하세요"
                       style={inputStyle}
                     />
