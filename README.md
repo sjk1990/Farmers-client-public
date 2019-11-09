@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 농사에 관심이 생긴 초보 농사꾼들을 위한 앱입니다.
+## 농사에 관심이 생긴 초보 농사꾼들을 위한 앱입니다.(소개-서비스 컨셉)
 
 - 거주/관심 지역,
 - 관심 작물 (과일/채소/허브),
@@ -8,19 +8,23 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 고려하여 딱 맞는 농작물을 추천해드립니다.
 생명을 가꾸고 수확의 보람을 느껴보세요!
 
-### `yarn start`
+### 앱의 기능
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- 지역, 위치에 따른 적합한 작물 추천.
+- 날씨상태와 연동하여 작물에 대한 상태 표기( 경고, 보통, 좋음 )
+- 작물정보 검색.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### 기술 및 스택
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
+- 프론트엔드
+  react
+  react-router
+  antDesign
+  
+- 백엔드
+  node.js(express)
+  mysql(sequelize)
+  
 ### `yarn build`
 
 Builds the app for production to the `build` folder.<br />
