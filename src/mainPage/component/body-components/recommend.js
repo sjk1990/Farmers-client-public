@@ -1,17 +1,15 @@
-import React from 'react';
-import { Typography, Divider } from 'antd';
-
-const { Title, Paragraph } = Typography;
+import React from 'react'
+import { Typography, Divider } from 'antd'
+import GreenTea from './greenTea.png'
+const { Title, Paragraph } = Typography
 
 /***********************************************CSS******************************************************/
 let imgStyle = {
   borderRadius: '1vw',
-  height: '20vh',
-  marginTop: '1vh',
-  marginRight: '2vw',
-  marginLeft: '2vw',
+  height: '22vh',
+  width: '70vw',
   float: 'left'
-};
+}
 /********************************************************************************************************/
 
 function Recommend() {
@@ -19,16 +17,16 @@ function Recommend() {
     // 로그인 후
     <div className="content-wrapper" style={{ textAlign: 'left' }}>
       <img
-        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        src={GreenTea}
         className="content-image"
         style={imgStyle}
       ></img>
-      <div className="wrap-crop-content">
+      {/* <div className="wrap-crop-content">
         <strong className="crop-name">고구마</strong>
         <p className="crop-description">
           대충 고구마에 대한 자세하고 친절한 설명
-        </p>
-      </div>
+        </p> 
+      </div>*/}
     </div>
     // 로그인 전
     // <Typography>
@@ -41,7 +39,7 @@ function Recommend() {
     //   </Paragraph>
     //   {/* <Divider /> */}
     // </Typography>
-  );
+  )
 }
 
-export default Recommend;
+export default Recommend

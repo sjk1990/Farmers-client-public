@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Layout, Select, Input } from 'antd';
 import Favorite from './body-components/favorite';
 import Recommend from '../component/body-components/recommend.js';
-// import TrafficLight from '../component/body-components/trafficLight';
+import TrafficLight from '../component/body-components/trafficLight';
 import SearchBox from '../component/body-components/searchBox.js';
-// import SerchResult from '../component/body-components/afterSearch';
+import SerchResult from '../component/body-components/afterSearch';
 
 
 // import Favorite from './body-favorite';
@@ -74,7 +74,7 @@ class Body extends Component {
             <Favorite />
           </Content>
           <Content style={contentDesign}>
-            {/* <TrafficLight /> */}
+            <TrafficLight />
           </Content>
           <Content style={contentDesign}>
             <Recommend />

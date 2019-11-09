@@ -76,7 +76,7 @@ componentDidMount()
 {
   const that = this;
   let lat, lon, add;
-  let url = "http://989e595a.ngrok.io/crop/"
+  let url = "http://b86d19e2.ngrok.io/crop/"
   let getObj = 
   {
     method: 'GET',
@@ -149,7 +149,7 @@ render()
           style={imgStyle}
         ></img>
         <div className="wrap-crop-signal">
-          <strong className="crop-signal-title">{content.title}</strong>
+          <strong className="crop-signal-title" style ={{marginTop : "1vh"}}>{content.title}</strong>
           <p className="crop-signal-description">
             {content.description}
           </p>
