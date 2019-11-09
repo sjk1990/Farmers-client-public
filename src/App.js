@@ -6,7 +6,7 @@ import Body from "./mainPage/component/body";
 import Bottom from "./mainPage/component/footer";
 import BeforeLogin from "./mainPage/component/beforeLogin.js"
 
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import { Button, PageHeader } from "antd";
 import WrappedSignIn from "./signPage/signIn";
 import WrappedSignUp from "./signPage/signUp";
@@ -72,11 +72,10 @@ class App extends Component {
   }
 
   //회원정보 일치할때
-  tryLogin(e) {
-    e.preventDefault();
 
-    // let url = "http://2560c8d9.ngrok.io/user/signin";
-    let url = "http://localhost:5000/user/signin";
+  tryLogin() {    
+    let url = "http://989e595a.ngrok.io/user/signin";
+    // let url = "http://localhost:5000/user/signin";
     let login_info = {
       "email": document.querySelector("#normal_login_email").value,
       "password": document.querySelector("#normal_login_password").value
@@ -99,9 +98,10 @@ class App extends Component {
       .then(data => console.log(data))
       .catch(err => console.error(err));
   }
-  tryLogout(e) {
-    // let url = "http://2560c8d9.ngrok.io/user/signout";
-    let url = "http://localhost:5000/user/signout";
+
+  tryLogout() {    
+    let url = "http://989e595a.ngrok.io/user/signout";
+    // let url = "http://localhost:5000/user/signout";
 
     fetch(url, {
       method: "POST",
@@ -119,49 +119,33 @@ class App extends Component {
       .then(data => console.log(data))
       .catch(err => console.error(err));
   }
+ 
+  componentDidUpdate()
+  {
+    if(this.state.signIn)
+    {
+      console.log("페치실행")
+      let url = "http://989e595a.ngrok.io/crop/reco";
+      // let url = "http://localhost:5000/crop/reco";
 
-
-  // signIn의 로그인 버튼에 기능을 걸어둔다.
-  // 로그인 시 true인 state값(signIn: true)에 따라 실행되도록?
-  // 로그인 화면으로 이동한 후 자동 요청
-  // getCrops() {
-
-  // }
-
-  // componentDidUpdate() {
-  //   if (this.state.signIn) {
-  //     console.log("페치실행")
-  //     // let url = "http://2560c8d9.ngrok.io/crop/reco";
-  //     let url = "http://localhost:5000/crop/reco";
-
-  //     fetch(url, {
-  //       method: 'GET',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       }
-  //       , credentials: 'include'
-  //     })
-  //       .then(res => res.json())
-  //       .then(res => {
-  //         // console.log(res)
-  //         // if (res.status === 200) { ==> 작동 X.
-  //         console.log("200 는 : ", res[0])
-  //         document.querySelector('strong.crop-name').innerHTML = `작물명 : ${res[0].cropname}`;
-  //         document.querySelector('p.crop-description').innerHTML =
-  //           `주요 경작 위치 : ${res[0].location}<br> 분류 : ${res[0].category}<br>
-  //           ※재배 정보※<br> 
-  //           토양 산성도 : ${res[0].maxph} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 경작 난이도 : ${res[0].difficulty}<br>
-  //           적정 온도 : ${res[0].maxtemp} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 노동 강도 : ${res[0].labor}<br>
-  //           생육기간 : ${res[0].term} &nbsp;&nbsp;&nbsp;&nbsp; 경작 방법 : url 첨부?`;
-
-
-
-  //         // console.log("나는 농작물 정보를 받아온다:",res)
-  //       })
-  //       .catch(err => console.error(err));
-  //   }
-  // }
-
+      fetch(url, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+        , credentials: 'include'
+      })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res)
+        if(res.status === 200)
+        {
+          console.log("200 는 : ", res)
+        }
+      })
+      .catch(err => console.error(err));  
+    }
+  }
 
   render() {
     let toggleLogin = !this.state.signIn ?

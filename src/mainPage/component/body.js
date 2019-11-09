@@ -18,7 +18,7 @@ const { Content } = Layout;
 const contentDesign = {
   background: 'white',
   borderRadius: '1vw',
-  padding: '0 50px',
+  padding: '0',
   textAlign: 'center',
   height: '22vh',
   margin: 'auto',
