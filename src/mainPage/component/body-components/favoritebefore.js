@@ -1,31 +1,21 @@
 import React, { Component } from 'react'
+import { Descriptions } from "antd";
 
-
-let imgStyle = {
-    borderRadius: '1vw',
-    height: '20vh',
-    marginTop: '1vh',
-    marginRight: '2vw',
-    float: 'left'
-};
 
 class FavoriteBefore extends Component {
     render() {
         return (
-            <div className="content-wrapper" style={{ textAlign: 'left' }}>
-                <img
-                    src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-                    className="content-image"
-                    style={imgStyle}
-                ></img>
-                <div className="wrap-crop-content">
-                    <strong className="crop-name">감자</strong>
-                    {/* <div className="crop-name">감자</div> */}
-                    <p className="crop-description">
-                        대충 감자에 대한 자세하고 친절한 설명
-          </p>
-                </div>
-            </div>
+            <Descriptions bordered title="작물정보" size="small">            
+                <Descriptions.Item label="작물명">Cloud Database</Descriptions.Item>
+                <Descriptions.Item label="분류">Prepaid</Descriptions.Item>
+                <Descriptions.Item label="경작위치">18:00:00</Descriptions.Item>
+                <Descriptions.Item label="토양산성도">$80.00</Descriptions.Item>
+                <Descriptions.Item label="적정온도">$20.00</Descriptions.Item>
+                <Descriptions.Item label="생육기간">$60.00</Descriptions.Item>
+                <Descriptions.Item label="업무강도">$20.00</Descriptions.Item>
+                <Descriptions.Item label="경작난이도">$60.00</Descriptions.Item>
+                <Descriptions.Item label="기타사항">$60.00</Descriptions.Item>
+            </Descriptions>
         )
     }
 }
