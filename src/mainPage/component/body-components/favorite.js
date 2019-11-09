@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Typography, Divider } from 'antd';
-import FavoriteBefore from './favoritebegore';
+import FavoriteBefore from './favoritebefore';
 import FavoriteAfter from './favoriteafter';
 
 const { Title, Paragraph, Text } = Typography;
@@ -13,11 +13,11 @@ const { Title, Paragraph, Text } = Typography;
 let imgStyle = {
   borderRadius: '1vw',
   height: '20vh',
-  marginTop: '1vh',
   marginRight: '2vw',
   float: 'left'
 };
 /********************************************************************************************************/
+
 class Favorite extends Component {
   constructor(props) {
     super(props)
@@ -30,7 +30,7 @@ class Favorite extends Component {
     // if (this.state.signIn) {
     console.log("페치실행")
     // let url = "http://2560c8d9.ngrok.io/crop/reco";
-    let url = "http://localhost:5000/crop/reco";
+    let url = "http://b86d19e2.ngrok.io/crop/reco";
 
     fetch(url, {
       method: 'GET',
@@ -45,17 +45,6 @@ class Favorite extends Component {
         let arr = [res[0]];
         this.setState({ cropinfo: arr })
         console.log('cropinfo::::', this.state.cropinfo)
-
-        // console.log(res)
-        // if (res.status === 200) { ==> 작동 X.
-        // console.log("200 는 : ", res[0])
-        // document.querySelector('strong.crop-name').innerHTML = `작물명 : ${res[0].cropname}`;
-        // document.querySelector('p.crop-description').innerHTML =
-        //   `주요 경작 위치 : ${res[0].location}<br> 분류 : ${res[0].category}<br>
-        //     ※재배 정보※<br> 
-        //     토양 산성도 : ${res[0].maxph} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 경작 난이도 : ${res[0].difficulty}<br>
-        //     적정 온도 : ${res[0].maxtemp} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 노동 강도 : ${res[0].labor}<br>
-        //     생육기간 : ${res[0].term} &nbsp;&nbsp;&nbsp;&nbsp; 경작 방법 : url 첨부?`;
       })
       .catch(err => console.error(err));
     // }
@@ -64,9 +53,14 @@ class Favorite extends Component {
   render() {
     return (
       // 로그인 후
-      this.state.cropinfo.length ?
-        <FavoriteAfter val={this.state.cropinfo[0]} /> :
-        <FavoriteBefore />
+      !this.state.cropinfo.length ? 
+      <FavoriteBefore /> : 
+      <div>
+        <img src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png" className="content-image" style = {imgStyle}></img>
+        <div style ={{float: "right", width: "50vw"}}> 
+          <FavoriteAfter val={this.state.cropinfo[0]} />
+        </div>
+      </div>      
     )
   }
 }

@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Layout, Select, Input } from 'antd';
-import Favorite from './body-components/favorite.js/index.js.js';
+import Favorite from './body-components/favorite.js';
 import Recommend from '../component/body-components/recommend.js';
 import TrafficLight from '../component/body-components/trafficLight.js';
 import SearchBox from '../component/body-components/searchBox.js';
-import SerchResult from '../component/body-components/afterSearch';
+// import SerchResult from '../component/body-components/afterSearch';
 
 
 // import Favorite from './body-favorite';
@@ -25,11 +25,23 @@ const contentDesign = {
   marginTop: '2vh',
   width: '70vw',
 };
+const favoriteDesign = {
+  background: 'white',
+  borderRadius: '1vw',
+  padding: '0',
+  textAlign: 'center',
+  height: '22vh',
+  margin: 'auto',
+  marginTop: '2vh',
+  width: '70vw',
+  padding: '0.5vw 2vw 0.5vw 2vw'
+}
 const firstContent = {
   padding: '0 50px',
   textAlign: 'center',
   height: '80vh',
   marginTop: '2vh',
+  
 };
 /***********************************************************************************************************/
 class Body extends Component {
@@ -39,7 +51,7 @@ class Body extends Component {
       search: false,
       deliver: []
     }
-    this.searchCrop = this.searchCrop.bind(this)
+    this.searched = this.searched.bind(this)
     this.deliverCrop = this.deliverCrop.bind(this)
   }
 
@@ -54,11 +66,11 @@ class Body extends Component {
   render() {
     console.log(this.state)
     return (
-      this.state ?
-        <SerchResult val={this.state.deliver[0]} /> :
+      // this.state ?
+      //   <SerchResult val={this.state.deliver[0]} /> :
         <Content style={firstContent}>
           <SearchBox func={this.searched} func2={this.deliverCrop} />
-          <Content style={contentDesign}>
+          <Content style={favoriteDesign}>
             <Favorite />
           </Content>
           <Content style={contentDesign}>

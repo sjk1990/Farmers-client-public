@@ -9,6 +9,7 @@ let imgStyle = {
   height: '20vh',
   marginTop: '1vh',
   marginRight: '2vw',
+  marginLeft: '2vw',
   float: 'left'
 };
 /********************************************************************************************************/

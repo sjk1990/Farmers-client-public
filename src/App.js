@@ -35,8 +35,8 @@ class App extends Component {
 
   //이미 회원정보 있을때
   infoRegister() {
-    // let url = "http://2560c8d9.ngrok.io/user/signup"
-    let url = "http://localhost:5000/user/signup"
+    let url = "http://b86d19e2.ngrok.io/user/signup"
+    // let url = "http://localhost:5000/user/signup"
     let newUser = {
       "username": document.getElementById("register_username").value,
       "email": document.getElementById("register_email").value,
@@ -74,7 +74,7 @@ class App extends Component {
   //회원정보 일치할때
 
   tryLogin() {    
-    let url = "http://989e595a.ngrok.io/user/signin";
+    let url = "http://b86d19e2.ngrok.io/user/signin";
     // let url = "http://localhost:5000/user/signin";
     let login_info = {
       "email": document.querySelector("#normal_login_email").value,
@@ -100,7 +100,7 @@ class App extends Component {
   }
 
   tryLogout() {    
-    let url = "http://989e595a.ngrok.io/user/signout";
+    let url = "http://b86d19e2.ngrok.io/user/signout";
     // let url = "http://localhost:5000/user/signout";
 
     fetch(url, {
@@ -120,32 +120,32 @@ class App extends Component {
       .catch(err => console.error(err));
   }
  
-  componentDidUpdate()
-  {
-    if(this.state.signIn)
-    {
-      console.log("페치실행")
-      let url = "http://989e595a.ngrok.io/crop/reco";
-      // let url = "http://localhost:5000/crop/reco";
+  // componentDidUpdate()
+  // {
+  //   if(this.state.signIn)
+  //   {
+  //     console.log("페치실행")
+  //     let url = "http://f49e8fe5.ngrok.io/crop/reco";
+  //     // let url = "http://localhost:5000/crop/reco";
 
-      fetch(url, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json'
-        }
-        , credentials: 'include'
-      })
-      .then(res => res.json())
-      .then(res => {
-        console.log(res)
-        if(res.status === 200)
-        {
-          console.log("200 는 : ", res)
-        }
-      })
-      .catch(err => console.error(err));  
-    }
-  }
+  //     fetch(url, {
+  //       method: 'GET',
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       }
+  //       , credentials: 'include'
+  //     })
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       console.log(res)
+  //       if(res.status === 200)
+  //       {
+  //         console.log("200 는 : ", res)
+  //       }
+  //     })
+  //     .catch(err => console.error(err));  
+  //   }
+  // }
 
   render() {
     let toggleLogin = !this.state.signIn ?
