@@ -9,7 +9,9 @@ const { Footer } = Layout;
 function Bottom() {
     return (
       <Footer>
-        농사꾼 © Established at 2019
+        <div style = {{textAlign: "center"}}>
+          농사꾼 © Established at 2019
+        </div>
       </Footer> 
     );
   }

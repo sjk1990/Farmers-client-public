@@ -4,7 +4,7 @@ import Favorite from './body-components/favorite';
 import Recommend from '../component/body-components/recommend.js';
 // import TrafficLight from '../component/body-components/trafficLight';
 import SearchBox from '../component/body-components/searchBox.js';
-import SerchResult from '../component/body-components/afterSearch';
+// import SerchResult from '../component/body-components/afterSearch';
 
 
 // import Favorite from './body-favorite';
@@ -25,11 +25,23 @@ const contentDesign = {
   marginTop: '2vh',
   width: '70vw',
 };
+const favoriteDesign = {
+  background: 'white',
+  borderRadius: '1vw',
+  padding: '0',
+  textAlign: 'center',
+  height: '22vh',
+  margin: 'auto',
+  marginTop: '2vh',
+  width: '70vw',
+  padding: '0.5vw 2vw 0.5vw 2vw'
+}
 const firstContent = {
   padding: '0 50px',
   textAlign: 'center',
   height: '80vh',
   marginTop: '2vh',
+  
 };
 /***********************************************************************************************************/
 class Body extends Component {
@@ -58,7 +70,7 @@ class Body extends Component {
         <SerchResult val={this.state.deliver} /> :
         <Content style={firstContent}>
           <SearchBox func={this.searched} func2={this.deliverCrop} />
-          <Content style={contentDesign}>
+          <Content style={favoriteDesign}>
             <Favorite />
           </Content>
           <Content style={contentDesign}>

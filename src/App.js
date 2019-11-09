@@ -73,6 +73,7 @@ class App extends Component {
 
   //회원정보 일치할때
 
+
   tryLogin() {
     let url = "http://b86d19e2.ngrok.io/user/signin";
     // let url = "http://localhost:5000/user/signin";
@@ -120,33 +121,6 @@ class App extends Component {
       .catch(err => console.error(err));
   }
 
-  // componentDidUpdate()
-  // {
-  //   if(this.state.signIn)
-  //   {
-  //     console.log("페치실행")
-  //     let url = "http://989e595a.ngrok.io/crop/reco";
-  //     // let url = "http://localhost:5000/crop/reco";
-
-  //     fetch(url, {
-  //       method: 'GET',
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       }
-  //       , credentials: 'include'
-  //     })
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       console.log(res)
-  //       if(res.status === 200)
-  //       {
-  //         console.log("200 는 : ", res)
-  //       }
-  //     })
-  //     .catch(err => console.error(err));  
-  //   }
-  // }
-
   render() {
     let toggleLogin = !this.state.signIn ?
       // 버튼을 누르면 이동
@@ -159,12 +133,6 @@ class App extends Component {
       </Button>
 
     console.log("로그인 진위여부 : ", this.state.signIn)
-
-    // let logInOut = !this.state.signIn ?  
-    // <Route path="/signIn" render={() =>          
-    //   <WrappedSignIn func={this.tryLogin} signInBool={this.state.signIn} />} />  :
-    // <Route path="/signIn" render={() => 
-    //   <WrappedSignIn func={this.tryLogout} signInBool={this.state.signIn} />} />
 
     return (
       <Router>
