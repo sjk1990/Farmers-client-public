@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 농사에 관심이 생긴 초보 농사꾼들을 위한 앱입니다.(소개-서비스 컨셉)
+## 농사에 관심이 생긴 초보 농사꾼들을 위한 앱입니다.
 
 - 거주/관심 지역,
 - 관심 작물 (과일/채소/허브),
@@ -24,6 +24,3 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - 백엔드</br>
   node.js(express)</br>
   mysql(sequelize)</br></br>
-  
-### 화면 구성
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6fcae53a-030d-4c18-9a0f-e1a9f1a761f6/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6fcae53a-030d-4c18-9a0f-e1a9f1a761f6/Untitled.png)
