@@ -2,7 +2,7 @@
 
 농사를 농사가 처음이신가요? 그럼 **생활농사**를 이용해보세요!
 
-<img width="1011" alt="Farmers" src="https://user-images.githubusercontent.com/48947537/70606649-49cedd80-1c40-11ea-9dd6-72f50d32b3df.png">
+![농부](https://user-images.githubusercontent.com/48947537/70617811-c53a8a00-1c54-11ea-8334-6e5aab86f995.gif)
 
 #### 작물추천
  유저의 원하시는 조건에 맞는 작물을 추천해 드립니다!
@@ -15,4 +15,3 @@
 
 
 ## 이 모든 기능을 회원가입 한 뒤 이용해 보세요!
-![FarmerGif](https://user-images.githubusercontent.com/48947537/70616507-f1a0d700-1c51-11ea-87aa-3d2382804191.gif)
