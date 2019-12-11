@@ -26,3 +26,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   mysql(sequelize)</br></br>
   
 ### 화면 구성
+<div>
+<img src="![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6fcae53a-030d-4c18-9a0f-e1a9f1a761f6/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6fcae53a-030d-4c18-9a0f-e1a9f1a761f6/Untitled.png)">
+</div>
